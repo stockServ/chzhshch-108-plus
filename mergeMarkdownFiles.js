@@ -8,6 +8,14 @@ const mdFileList = fs.readdirSync('./108');
 let mdAllContent = "[toc]\r\n";
 let mdArticleContent = "[toc]\r\n";
 
+const readmeContent = fs.readFileSync("./README.md", 'utf-8');
+
+// 全部
+mdAllContent += readmeContent + "\r\n\r\n";
+
+// 只包含课文
+mdArticleContent += readmeContent + "\r\n\r\n";
+
 for (const szMDFileName of mdFileList) {
     if (path.extname(szMDFileName) !== '.md') {
         continue;
